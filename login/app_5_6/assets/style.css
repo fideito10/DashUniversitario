@@ -1,0 +1,249 @@
+/* assets/style.css */
+
+/* Contenedor principal del menú */
+.menu-container {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #000814;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos base del menú */
+.custom-menu {
+    padding: 1rem 0;
+    background-color: #000814;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para los enlaces del menú */
+.menu-link {
+    position: relative;
+    padding: 12px 20px;
+    color: #ecf0f1 !important;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+/* Efecto hover con línea inferior */
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+.menu-link:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left-color: #3498db;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* Estilos para submenús - Colores actualizados */
+.submenu {
+    background-color: #001428 !important; /* Color ligeramente más oscuro que el fondo principal */
+    transform-origin: top;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding: 0.5rem 0;
+    margin-top: 2px;
+    border-left: 2px solid #3498db;
+}
+
+.submenu.show {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+/* Enlaces del submenú - Colores actualizados */
+.submenu-link {
+    color: #ffffff !important; /* Color más claro para mejor visibilidad */
+    padding: 8px 20px 8px 40px !important;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background-color: transparent !important;
+}
+
+.submenu-link:hover {
+    color: #3498db !important;
+    background-color: rgba(52, 152, 219, 0.1) !important;
+    padding-left: 45px !important;
+}
+
+/* Iconos */
+.menu-link i {
+    width: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Flecha del dropdown */
+.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Contenedor del contenido principal */
+.content-container {
+    margin-left: 250px;
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+    background-color: #6c757d; /* Fondo gris */
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* Animaciones adicionales */
+.menu-item-with-submenu {
+    position: relative;
+}
+
+.menu-item-with-submenu::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item-with-submenu:hover::before {
+    background-color: #3498db;
+}
+
+/* Estado activo */
+.menu-link.active {
+    background-color: rgba(52, 152, 219, 0.2);
+    border-left-color: #3498db;
+    box-shadow: inset 0 0 10px rgba(52, 152, 219, 0.1);
+}
+
+/* Estado activo para submenús */
+.submenu-link.active {
+    background-color: rgba(52, 152, 219, 0.2) !important;
+    color: #3498db !important;
+    border-left: 2px solid #3498db;
+    box-shadow: inset 0 0 8px rgba(52, 152, 219, 0.1);
+}
+
+/* Estilos modernos para toda la aplicación */
+body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+
+/* Estilos para títulos y encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+/* Estilos para tarjetas */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    background-color: #495057;
+}
+
+.card-header {
+    background-color: #343a40;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 2px solid #3498db;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+    background-color: #495057;
+    color: #ffffff;
+}
+
+/* Estilo para los valores grandes de métricas */
+.player-metric-value {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para los selectores dropdown */
+.Select-control {
+    background-color: #343a40 !important;
+    border-color: #495057 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.Select-menu-outer {
+    background-color: #343a40 !important;
+    border-color: #495057 !important;
+    border-radius: 0 0 8px 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.Select-value-label, .Select--single > .Select-control .Select-value {
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.Select-option {
+    background-color: #343a40 !important;
+    color: white !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.Select-option:hover {
+    background-color: #495057 !important;
+}
+
+.Select-arrow {
+    border-color: #3498db transparent transparent !important;
+}
+
+/* Estilos para gráficos */
+.dash-graph {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dash-graph:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
