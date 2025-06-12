@@ -2,6 +2,7 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
+import os
 
 app = dash.Dash(
     __name__,
@@ -11,6 +12,9 @@ app = dash.Dash(
         dbc.icons.FONT_AWESOME
     ]
 )
+
+# Configuración para despliegue en Render
+server = app.server
 
 # Crear el menú animado
 animated_menu = html.Div([
@@ -108,4 +112,6 @@ def toggle_team_submenu(n, is_open):
     return is_open
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Obtener el puerto del entorno (usado por Render) o usar 8050 por defecto
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host='0.0.0.0', port=port, debug=False)
