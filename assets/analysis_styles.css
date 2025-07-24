@@ -1,0 +1,136 @@
+/* Estilos CSS personalizados para la página de análisis de lesiones */
+
+/* Animaciones personalizadas */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Efectos para tarjetas personalizadas */
+.custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Efectos para botones personalizados */
+.custom-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Estilos para dropdown personalizado */
+.custom-dropdown .Select-control {
+    border-radius: 10px !important;
+    border: 2px solid #e9ecef !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.custom-dropdown .Select-control:hover {
+    border-color: #667eea !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2) !important;
+}
+
+.custom-dropdown .Select-control:focus {
+    border-color: #764ba2 !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+}
+
+/* Animación de entrada suave */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Mejoras adicionales para alertas */
+.alert {
+    border-radius: 12px !important;
+    border: none !important;
+    font-weight: 500 !important;
+}
+
+/* Efectos para tarjetas de métricas */
+.metric-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.metric-card:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Efectos para iconos */
+.fas {
+    transition: transform 0.2s ease !important;
+}
+
+.fas:hover {
+    transform: scale(1.1) !important;
+}
+
+/* Mejoras para list group items */
+.list-group-item {
+    transition: background-color 0.2s ease !important;
+}
+
+.list-group-item:hover {
+    background-color: rgba(0,0,0,0.02) !important;
+}
+
+/* Gradientes personalizados para diferentes niveles de riesgo */
+.risk-low {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb) !important;
+}
+
+.risk-medium {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7) !important;
+}
+
+.risk-high {
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb) !important;
+}
+
+/* Efectos de texto */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}

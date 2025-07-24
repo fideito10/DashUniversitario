@@ -1,0 +1,151 @@
+/* Estilos específicos para el dashboard de jugadores - Tema Negro */
+
+/* Variables específicas para el dashboard de jugadores */
+:root {
+    --player-bg-primary: #000000;
+    --player-bg-secondary: #1a1a1a;
+    --player-bg-tertiary: #2d2d2d;
+    --player-text-primary: #ffffff;
+    --player-text-secondary: #e0e0e0;
+    --player-accent: #007bff;
+    --player-shadow: rgba(0, 0, 0, 0.6);
+}
+
+.player-dashboard-container {
+    animation: fadeIn 0.5s ease;
+    background-color: var(--player-bg-primary) !important;
+    color: var(--player-text-primary) !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para las tarjetas de la primera fila */
+.player-dashboard-container .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--player-bg-secondary) !important;
+    border: 1px solid #333333 !important;
+    color: var(--player-text-primary) !important;
+}
+
+.player-dashboard-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--player-shadow);
+}
+
+/* Estilos para los valores métricos */
+.player-metric-value {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px var(--player-shadow);
+    letter-spacing: 0.5px;
+    color: var(--player-text-primary) !important;
+}
+
+/* Estilo para imágenes de jugadores */
+#player-photo img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+#player-photo img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px var(--player-shadow) !important;
+}
+
+/* Efecto de luz para resaltar las estadísticas */
+.player-stats-highlight {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--player-bg-secondary) !important;
+}
+
+.player-stats-highlight::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    from { transform: translateX(-100%) rotate(30deg); }
+    to { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Estilos para gráficos de rendimiento */
+.performance-chart {
+    transition: all 0.3s ease;
+    background-color: var(--player-bg-primary) !important;
+}
+
+.performance-chart:hover {
+    filter: brightness(1.05);
+}
+
+/* Estilos adicionales para elementos específicos del dashboard de jugadores */
+.player-dashboard-container h1,
+.player-dashboard-container h2,
+.player-dashboard-container h3,
+.player-dashboard-container h4,
+.player-dashboard-container h5,
+.player-dashboard-container h6 {
+    color: var(--player-text-primary) !important;
+    text-shadow: 1px 1px 3px var(--player-shadow);
+}
+
+.player-dashboard-container .card-header {
+    background-color: var(--player-bg-tertiary) !important;
+    color: var(--player-text-primary) !important;
+    border-bottom: 2px solid var(--player-accent) !important;
+}
+
+.player-dashboard-container .card-body {
+    background-color: var(--player-bg-secondary) !important;
+    color: var(--player-text-primary) !important;
+}
+
+/* Selectores específicos para la página de jugadores */
+.player-dashboard-container .Select-control {
+    background-color: var(--player-bg-tertiary) !important;
+    border-color: #333333 !important;
+    color: var(--player-text-primary) !important;
+}
+
+.player-dashboard-container .Select-value-label {
+    color: var(--player-text-primary) !important;
+}
+
+.player-dashboard-container .form-control {
+    background-color: var(--player-bg-secondary) !important;
+    border-color: #333333 !important;
+    color: var(--player-text-primary) !important;
+}
+
+/* Efectos para botones en el dashboard de jugadores */
+.player-dashboard-container .btn {
+    transition: all 0.3s ease;
+}
+
+.player-dashboard-container .btn-primary {
+    background-color: var(--player-accent) !important;
+    border-color: var(--player-accent) !important;
+    color: var(--player-text-primary) !important;
+}
+
+.player-dashboard-container .btn-primary:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}

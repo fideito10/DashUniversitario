@@ -1,0 +1,638 @@
+/* assets/style.css - Tema Negro */
+
+/* Variables de color para tema oscuro */
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --accent-blue: #007bff;
+    --border-color: #333333;
+    --hover-bg: #3a3a3a;
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+
+/* Contenedor principal del menú */
+.menu-container {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--bg-secondary);
+    box-shadow: 2px 0 10px var(--shadow-dark);
+    border-right: 1px solid var(--border-color);
+    z-index: 1000; /* Asegurar que el menú esté arriba */
+}
+
+/* Contenedor del contenido principal */
+.content-container, #page-content {
+    margin-left: 250px; /* Mismo ancho que el menú lateral */
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--bg-primary);
+    transition: margin-left 0.3s ease;
+}
+
+/* Estilos base del menú */
+.custom-menu {
+    padding: 1rem 0;
+    background-color: var(--bg-secondary);
+    transition: all 0.3s ease;
+}
+
+/* Estilos para los enlaces del menú */
+.menu-link {
+    position: relative;
+    padding: 12px 20px;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Efecto hover con línea inferior */
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-blue);
+    transition: width 0.3s ease;
+}
+
+.menu-link:hover {
+    background-color: var(--hover-bg);
+    border-left-color: var(--accent-blue);
+    color: var(--text-primary) !important;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+/* Estilos para submenús */
+.submenu {
+    background-color: var(--bg-tertiary) !important;
+    transform-origin: top;
+    transition: all 0.3s ease !important;
+    padding: 0.5rem 0;
+    margin-top: 2px;
+    border-left: 3px solid var(--accent-blue);
+    box-shadow: inset 0 0 10px var(--shadow-dark);
+    overflow: hidden;
+}
+
+/* Estados del collapse de Bootstrap */
+.submenu.show, 
+.submenu.collapsing,
+.collapse.show .submenu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    height: auto !important;
+}
+
+.submenu:not(.show) {
+    display: none;
+}
+
+/* Asegurar que el contenedor del collapse sea visible */
+.collapse.show {
+    display: block !important;
+}
+
+/* Enlaces del submenú */
+.submenu-link {
+    color: var(--text-primary) !important;
+    padding: 10px 20px 10px 40px !important;
+    font-size: 0.9rem;
+    font-weight: 500 !important;
+    transition: all 0.3s ease;
+    background-color: var(--bg-tertiary) !important;
+    text-decoration: none !important;
+    display: block !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.submenu-link:hover {
+    color: var(--text-primary) !important;
+    background-color: var(--hover-bg) !important;
+    padding-left: 45px !important;
+    border-left: 3px solid var(--accent-blue);
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.submenu-link:focus {
+    color: var(--text-primary) !important;
+    background-color: var(--hover-bg) !important;
+    outline: 2px solid var(--accent-blue);
+    outline-offset: -2px;
+}
+
+/* Iconos */
+.menu-link i {
+    width: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: var(--text-primary);
+}
+
+.menu-link:hover i {
+    transform: translateX(3px);
+}
+
+/* Flecha del dropdown */
+.fa-chevron-down {
+    transition: transform 0.3s ease;
+    color: var(--text-primary);
+}
+
+[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Estilos para títulos y encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-primary) !important;
+    text-shadow: 1px 1px 3px var(--shadow-dark);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+}
+
+/* Dropdowns */
+.dropdown-menu {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 10px var(--shadow-dark);
+}
+
+.dropdown-item {
+    color: var(--text-secondary) !important;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Forms */
+.form-control {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--accent-blue) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-select {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-label {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Tables */
+.table {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-primary) !important;
+}
+
+.table th {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+    font-weight: 600;
+}
+
+.table td {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--hover-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Text elements */
+p, span, div {
+    color: var(--text-primary) !important;
+}
+
+/* Títulos - forzar color blanco */
+.text-dark, .text-primary {
+    color: var(--text-primary) !important;
+}
+
+/* Links */
+a {
+    color: var(--accent-blue) !important;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #66b3ff !important;
+}
+
+/* Badges */
+.badge {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+}
+
+.badge-primary {
+    background-color: var(--accent-blue) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Alerts */
+.alert {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.alert-info {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+    border-color: var(--accent-blue) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Progress bars */
+.progress {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.progress-bar {
+    background-color: var(--accent-blue) !important;
+}
+
+/* Modal */
+.modal-content {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color) !important;
+    background-color: var(--bg-tertiary) !important;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color) !important;
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Estilo para los valores grandes de métricas */
+.player-metric-value {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+    color: var(--text-primary) !important;
+}
+
+/* Estilos para los selectores dropdown de Dash */
+.Select-control {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+    box-shadow: inset 0 1px 4px var(--shadow-dark) !important;
+}
+
+.Select-menu-outer {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    border-radius: 0 0 8px 8px !important;
+    box-shadow: 0 4px 8px var(--shadow-dark) !important;
+}
+
+.Select-value-label, .Select--single > .Select-control .Select-value {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+
+.Select-option {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.Select-option:hover {
+    background-color: var(--hover-bg) !important;
+}
+
+.Select-arrow {
+    border-color: var(--accent-blue) transparent transparent !important;
+}
+
+/* Estilos para gráficos */
+.dash-graph {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px var(--shadow-dark);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dash-graph:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px var(--shadow-dark);
+}
+
+/* Plotly graphs fondo negro */
+.js-plotly-plot {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Estilos específicos para Dash Bootstrap Collapse */
+div[id="stats-submenu"] {
+    background-color: var(--bg-tertiary) !important;
+    border-radius: 0 0 8px 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div[id="stats-submenu"].show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+div[id="stats-submenu"]:not(.show) {
+    display: none !important;
+}
+
+/* Asegurar que los links del submenú sean visibles */
+div[id="stats-submenu"] .submenu-link {
+    color: var(--text-primary) !important;
+    background-color: transparent !important;
+    padding: 12px 20px 12px 30px !important;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+div[id="stats-submenu"] .submenu-link:hover {
+    background-color: var(--hover-bg) !important;
+    color: var(--accent-blue) !important;
+    padding-left: 35px !important;
+    border-left: 3px solid var(--accent-blue);
+}
+
+/* Forzar visibilidad del nav dentro del collapse */
+div[id="stats-submenu"] .nav {
+    display: block !important;
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-bg);
+}
+
+/* Inputs y controles específicos de Dash */
+._dash-undo-redo {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dash-table-container {
+    background-color: var(--bg-primary) !important;
+}
+
+.dash-table-container .dash-spreadsheet-container {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Animaciones adicionales */
+.menu-item-with-submenu {
+    position: relative;
+}
+
+.menu-item-with-submenu::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item-with-submenu:hover::before {
+    background-color: var(--accent-blue);
+}
+
+/* Estilos específicos para las tarjetas de la página de inicio */
+.card {
+    background-color: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.card-body {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+.card-body p {
+    color: var(--text-primary) !important;
+}
+
+.card-body h5 {
+    color: var(--text-primary) !important;
+}
+
+/* Forzar título principal en blanco */
+h1.text-dark {
+    color: var(--text-primary) !important;
+}
+
+h3.text-dark {
+    color: var(--text-primary) !important;
+}
+
+/* Reglas específicas para sobrescribir Bootstrap y forzar fondo negro */
+.lead {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+}
+
+/* Forzar todas las tarjetas Bootstrap a fondo negro */
+.card {
+    background-color: #333333 !important;
+    color: white !important;
+    border: 1px solid #555555 !important;
+}
+
+.card-body {
+    background-color: #333333 !important;
+    color: white !important;
+}
+
+.card-body h5 {
+    color: inherit !important;
+}
+
+.card-body p {
+    color: white !important;
+}
+
+/* Regla más específica para las tarjetas con estas clases exactas */
+.card.h-100.border-0.shadow-sm {
+    background-color: #333333 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.card.h-100.border-0.shadow-sm .card-body {
+    background-color: #333333 !important;
+    color: white !important;
+}
+
+/* Sobrescribir cualquier fondo blanco de Bootstrap */
+.bg-white, .bg-light {
+    background-color: #333333 !important;
+    color: white !important;
+}
+
+/* Forzar texto blanco en lugar de colores de Bootstrap */
+.text-muted {
+    color: white !important;
+}
+
+/* Asegurar que los Strong elements sean visibles */
+strong {
+    color: white !important;
+}
+
+/* Contenedor general para evitar fondos blancos */
+.container, .container-fluid {
+    background-color: transparent !important;
+}
+
+/* Párrafos específicos */
+p.lead {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+}
+
+p.text-center {
+    color: var(--text-primary) !important;
+}
+
+/* Div containers */
+div.container {
+    background-color: transparent !important;
+}
+
+/* Para pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 200px;
+        transform: translateX(-200px);
+        transition: transform 0.3s ease;
+    }
+    
+    .menu-container.open {
+        transform: translateX(0);
+    }
+    
+    .content-container, #page-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    .content-container.menu-open, #page-content.menu-open {
+        margin-left: 200px;
+    }
+}
+
