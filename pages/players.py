@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 # Registrar esta página en la aplicación Dash
-dash.register_page(__name__, path='/stats/players')
+dash.register_page(__name__, path='/stats/players', name="Jugadores")
 
 # Función para cargar datos desde Google Sheets
 def load_data():

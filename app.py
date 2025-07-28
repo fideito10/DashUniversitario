@@ -1,10 +1,28 @@
 import dash
-from dash import html, dcc, callback, Input, Output
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 
-# Registrar la página
-dash.register_page(__name__, path='/', name='Inicio')
+nav_link_style = {
+    'color': 'white',
+    'fontSize': '1.3rem',
+    'fontWeight': 'bold'
+}
 
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.DARKLY], use_pages=True)
+
+app.layout = html.Div([
+    dbc.Nav([
+        dbc.NavLink("Inicio", href="/", active="exact", style=nav_link_style),
+        dbc.NavLink("Equipo", href="/stats/general", active="exact", style=nav_link_style),
+        dbc.NavLink("Jugadores", href="/stats/players", active="exact", style=nav_link_style),
+        dbc.NavLink("Lesiones", href="/team/analysis", active="exact", style=nav_link_style),
+    ], pills=True, className="mb-4"),
+    dash.page_container
+])
+
+if __name__ == "__main__":
+    app.run(debug=True)
+    
 def layout():
     return html.Div([
         # Contenido principal (ahora visible)
@@ -114,3 +132,8 @@ def layout():
         ], id="main-content", className="container-fluid mt-4", style={'display': 'block'}),
     ])
 
+
+if __name__ == "__main__":
+    app = dash.Dash(__name__, external_stylesheets=[dbc.themes.DARKLY])
+    app.layout = layout()
+    app.run(debug=True)
