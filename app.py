@@ -9,6 +9,7 @@ nav_link_style = {
 }
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.DARKLY], use_pages=True)
+server = app.server A
 
 app.layout = html.Div([
     dbc.Nav([
