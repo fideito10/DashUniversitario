@@ -558,7 +558,9 @@ def update_max_values(selected_player):
     for orig_col, new_col in column_mapping.items():
         if orig_col in max_values_df.columns:
             value = max_values_df.iloc[0][orig_col]
-            if isinstance(value, (int, float)):
+            if orig_col == 'Máximo Top Speed (m/s)':
+                value = round(value, 1)  # Redondear a un decimal
+            else:
                 value = round(value, 2)
             
             # Crear una fila con el valor y el título
